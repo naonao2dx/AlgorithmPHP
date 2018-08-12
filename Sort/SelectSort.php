@@ -5,40 +5,27 @@
  * Date: 2018/08/12
  * Time: 2:06
  */
-include_once dirname(__FILE__) . "/../Util/Util.php";
+include_once dirname(__FILE__) . "/../Base.php";
 
-function selectSort($shuffleArray)
+class SelectSort extends Base
 {
-    println("Shuffle array: " . implode(" ", $shuffleArray));
-    $calc = 0;
-    $arrayUpdate = 0;
-    $minupdate = 0;
-    $starttime = microtime(true);
-
-    for ($i = 0; $i < count($shuffleArray); $i++) {
-        $minIndex = $i;
-        $minValue = $shuffleArray[$i];
-        for ($j = $i; $j < count($shuffleArray); $j++) {
-            if ($shuffleArray[$j] < $minValue) {
-                $minIndex = $j;
-                $minValue = $shuffleArray[$j];
-                $minupdate++;
+    function exec()
+    {
+        $arrangedArray = $this->randomArray;
+        for ($i = 0; $i < count($arrangedArray); $i++) {
+            $minIndex = $i;
+            $minValue = $arrangedArray[$i];
+            for ($j = $i; $j < count($arrangedArray); $j++) {
+                if ($arrangedArray[$j] < $minValue) {
+                    $minIndex = $j;
+                    $minValue = $arrangedArray[$j];
+                }
             }
-            $calc++;
+            debugPrintln("minIndex: {$minIndex}, minValue: {$minValue}");
+            $arrangedArray[$minIndex] = $arrangedArray[$i];
+            $arrangedArray[$i] = $minValue;
+            debugPrintln("Arranged array: " . implode(" ", $arrangedArray));
         }
-        debugPrintln("minIndex: {$minIndex}, minValue: {$minValue}");
-        $shuffleArray[$minIndex] = $shuffleArray[$i];
-        $shuffleArray[$i] = $minValue;
-        $arrayUpdate++;
-        debugPrintln("Arranged array: " . implode(" ", $shuffleArray));
     }
-    $endtime = microtime(true);
-    $calctime = $endtime - $starttime;
 
-    println("Arranged array: " . implode(" ", $shuffleArray));
-    println("Calc: {$calc}");
-    println("Min update: {$minupdate}");
-    println("Array and tmp update: {$arrayUpdate}");
-    println("Calc time: " . sprintf('%0.5f', $calctime) . "秒");
-    return $shuffleArray;
 }

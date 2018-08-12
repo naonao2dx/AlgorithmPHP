@@ -5,37 +5,26 @@
  * Date: 2018/08/12
  * Time: 1:07
  */
-include_once dirname(__FILE__) . "/../Util/Util.php";
+include_once dirname(__FILE__) . "/../Base.php";
 
-function bubbleSort($shuffleArray)
+class BubbleSort extends Base
 {
-    println("Shuffle array: " . implode(" ", $shuffleArray));
-    $calc = 0;
-    $arrayUpdate = 0;
-    $starttime = microtime(true);
+    function exec()
+    {
+        $arrangedArray = $this->randomArray;
 
-    for ($i = 1; $i < count($shuffleArray) - 1; $i++) {
-        for ($j = count($shuffleArray) - 1; $i <= $j; $j--) {
-            if ($shuffleArray[$j] < $shuffleArray[$j - 1]) {
-                $tmp = $shuffleArray[$j];
-                $arrayUpdate++;
-                $shuffleArray[$j] = $shuffleArray[$j - 1];
-                $arrayUpdate++;
-                $shuffleArray[$j - 1] = $tmp;
-                $arrayUpdate++;
+        for ($i = 1; $i < count($arrangedArray); $i++) {
+            for ($j = count($arrangedArray) - 1; $i <= $j; $j--) {
+                if ($arrangedArray[$j] < $arrangedArray[$j - 1]) {
+                    $tmp = $arrangedArray[$j];
+                    $arrangedArray[$j] = $arrangedArray[$j - 1];
+                    $arrangedArray[$j - 1] = $tmp;
+                }
+                debugPrintln("array: " . implode(" ", $arrangedArray));
             }
-            debugPrintln("array: " . implode(" ", $shuffleArray));
-            $calc++;
         }
-        debugPrintln();
+        println("Arranged array: " . implode(" ", $arrangedArray));
     }
-    $endtime = microtime(true);
-    $calctime = $endtime - $starttime;
-
-    println("Arranged array: " . implode(" ", $shuffleArray));
-    println("Calc: {$calc}");
-    println("Array and tmp update: {$arrayUpdate}");
-    println("Calc time: " . sprintf('%0.5f', $calctime) . "秒");
-    return $shuffleArray;
 
 }
+

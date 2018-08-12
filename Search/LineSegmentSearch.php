@@ -5,20 +5,21 @@
  * Date: 2018/08/11
  * Time: 23:28
  */
-include_once dirname(__FILE__) . "/../Util/Util.php";
+include_once dirname(__FILE__) . "/../Base.php";
 
-function lineSegmentSearch($target, $array)
+class LineSegmentSearch extends Base
 {
-    println("Target: {$target}");
-    println("Array: " . implode(" ", $array));
+    function exec()
+    {
+        println("Search target: {$this->searchTarget}");
 
-    foreach ($array as $key => $value) {
-        if ($target == $value) {
-            println("Target index is {$key}");
-            return $key;
+        foreach ($this->randomArray as $key => $value) {
+            if ($this->searchTarget == $value) {
+                println("Target index is {$key}");
+                return;
+            }
         }
+        println("Target is not found.");
     }
 
-    println("Target is not found.");
-    return;
 }
