@@ -6,7 +6,6 @@
  * Time: 2:06
  */
 include_once dirname(__FILE__) . "/../Util/Util.php";
-include_once dirname(__FILE__) . "/../Search/LineSegmentSearch.php";
 
 function selectSort($shuffleArray)
 {

@@ -10,13 +10,17 @@ include_once dirname(__FILE__) . "/Search/LineSegmentSearch.php";
 include_once dirname(__FILE__) . "/Search/BinarySearch.php";
 include_once dirname(__FILE__) . "/Sort/BubbleSort.php";
 include_once dirname(__FILE__) . "/Sort/SelectSort.php";
+include_once dirname(__FILE__) . "/Sort/InsertSort.php";
 include_once dirname(__FILE__) . "/Util/Util.php";
 
 //define("DEBUG", true);
 
 $target = 10;
 $min = 1;
-$max = 300;
+$max = 500;
+if (defined("DEBUG")) {
+  $max = 10;
+}
 $originalArray = range($min, $max);
 $shuffleArray = $originalArray;
 shuffle($shuffleArray);
@@ -35,4 +39,8 @@ println();
 
 println("SelectSort");
 selectSort($shuffleArray);
+println();
+
+println("InsertSort");
+insertSort($shuffleArray);
 println();
