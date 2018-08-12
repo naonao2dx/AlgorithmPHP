@@ -11,8 +11,9 @@ include_once dirname(__FILE__) . "/Search/BinarySearch.php";
 include_once dirname(__FILE__) . "/Sort/BubbleSort.php";
 include_once dirname(__FILE__) . "/Sort/SelectSort.php";
 include_once dirname(__FILE__) . "/Sort/InsertSort.php";
+include_once dirname(__FILE__) . "/Sort/MergeSort.php";
 
-define("DEBUG", true);
+//define("DEBUG", true);
 
 $lineSegmentSearch = new LineSegmentSearch();
 $lineSegmentSearch->run();
@@ -28,3 +29,6 @@ $selectSort->run();
 
 $insertSort = new InsertSort();
 $insertSort->run();
+
+$mergeSort = new MergeSort();
+$mergeSort->run();
