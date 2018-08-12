@@ -13,11 +13,11 @@ include_once dirname(__FILE__) . "/Sort/SelectSort.php";
 include_once dirname(__FILE__) . "/Sort/InsertSort.php";
 include_once dirname(__FILE__) . "/Util/Util.php";
 
-//define("DEBUG", true);
+define("DEBUG", true);
 
 $target = 10;
 $min = 1;
-$max = 500;
+$max = 1000;
 if (defined("DEBUG")) {
   $max = 10;
 }

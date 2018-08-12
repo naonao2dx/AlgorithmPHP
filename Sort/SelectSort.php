@@ -11,7 +11,7 @@ function selectSort($shuffleArray)
 {
     println("Shuffle array: " . implode(" ", $shuffleArray));
     $calc = 0;
-    $swap = 0;
+    $arrayUpdate = 0;
     $minupdate = 0;
     $starttime = microtime(true);
 
@@ -29,7 +29,7 @@ function selectSort($shuffleArray)
         debugPrintln("minIndex: {$minIndex}, minValue: {$minValue}");
         $shuffleArray[$minIndex] = $shuffleArray[$i];
         $shuffleArray[$i] = $minValue;
-        $swap++;
+        $arrayUpdate++;
         debugPrintln("Arranged array: " . implode(" ", $shuffleArray));
     }
     $endtime = microtime(true);
@@ -38,7 +38,7 @@ function selectSort($shuffleArray)
     println("Arranged array: " . implode(" ", $shuffleArray));
     println("Calc: {$calc}");
     println("Min update: {$minupdate}");
-    println("Swap: {$swap}");
+    println("Array and tmp update: {$arrayUpdate}");
     println("Calc time: " . sprintf('%0.5f', $calctime) . "秒");
     return $shuffleArray;
 }
