@@ -12,6 +12,7 @@ include_once dirname(__FILE__) . "/Sort/BubbleSort.php";
 include_once dirname(__FILE__) . "/Sort/SelectSort.php";
 include_once dirname(__FILE__) . "/Sort/InsertSort.php";
 include_once dirname(__FILE__) . "/Sort/MergeSort.php";
+include_once dirname(__FILE__) . "/Sort/QuickSort.php";
 
 //define("DEBUG", true);
 
@@ -32,3 +33,6 @@ $insertSort->run();
 
 $mergeSort = new MergeSort();
 $mergeSort->run();
+
+$quickSort = new QuickSort();
+$quickSort->run();
