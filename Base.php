@@ -15,7 +15,7 @@ class Base
     protected $max;
     protected $searchTarget;
 
-    function __construct()
+    public function __construct()
     {
         $this->min = 0;
         $this->max = defined("DEBUG") ? 9 : 300;
@@ -25,7 +25,7 @@ class Base
         $this->searchTarget = 6;
     }
 
-    function run()
+    public function run()
     {
         println("/**** " . get_class($this) . " ****/");
         println("Ordered array: " . implode(" ", $this->orderedArray));
@@ -39,9 +39,7 @@ class Base
         println();
     }
 
-    function exec()
+    public function exec()
     {
-
     }
-
 }

@@ -9,7 +9,7 @@ include_once dirname(__FILE__) . "/../Base.php";
 
 class SelectSort extends Base
 {
-    function exec()
+    public function exec()
     {
         $arrangedArray = $this->randomArray;
         for ($i = 0; $i < count($arrangedArray); $i++) {
@@ -27,5 +27,4 @@ class SelectSort extends Base
             debugPrintln("Arranged array: " . implode(" ", $arrangedArray));
         }
     }
-
 }

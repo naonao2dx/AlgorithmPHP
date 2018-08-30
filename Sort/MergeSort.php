@@ -8,15 +8,17 @@
 
 class MergeSort extends Base
 {
-    function exec()
+    public function exec()
     {
         $this->_mergeSort(0, count($this->randomArray) - 1);
         println("Arranged Array: " . implode(" ", $this->randomArray));
     }
 
-    function _mergeSort($low, $high)
+    public function _mergeSort($low, $high)
     {
-        if ($high - $low < 1) return;
+        if ($high - $low < 1) {
+            return;
+        }
 
         $middle = intval(($low + $high) / 2);
         //debugPrintln("low: ${low}, middle: {$middle}, high: {$high}");
@@ -25,10 +27,9 @@ class MergeSort extends Base
         $this->_mergeSort($middle + 1, $high);
 
         $this->_merge($low, $middle, $high);
-
     }
 
-    function _merge($low, $middle, $high)
+    public function _merge($low, $middle, $high)
     {
         debugPrintln("Merge low: {$low}, middle: {$middle}, high: {$high}");
         $left = $low;

@@ -17,38 +17,50 @@ class QuickSort extends Base
 
     private function _quickSort($low, $high)
     {
-       debugPrintln("low: {$low}, high: {$high}");
+        debugPrintln("low: {$low}, high: {$high}");
 
-       if ($low == $high) return;
+        if ($low == $high) {
+            return;
+        }
 
-       $continue = $high - 1;
-       for ($left = $low; $left <= $high; $left++) {
-           if ($this->randomArray[$left] > $this->randomArray[$high]) {
-               for ($right = $continue; $right >= $left; $right--) {
-                   if ($left == $right) {
-                       $tmp = $this->randomArray[$right];
-                       $this->randomArray[$right] = $this->randomArray[$high];
-                       $this->randomArray[$high] = $tmp;
-                       debugPrintln("Array: " . implode(" ", $this->randomArray));
-                       if (0 < $right) $this->_quickSort($low, $right - 1);
-                       if ($right < $high) $this->_quickSort($right + 1, $high);
-                       return;
-                   }
-                   if ($this->randomArray[$right] < $this->randomArray[$high]) {
-                       $tmp = $this->randomArray[$left];
-                       $this->randomArray[$left] = $this->randomArray[$right];
-                       $this->randomArray[$right] = $tmp;
-                       $continue = $right;
-                       debugPrintln("Array: " . implode(" ", $this->randomArray));
-                       break;
-                   }
-               }
-           }
-           if ($left == $high) {
-               $this->_quickSort($low, $high - 1);
-               return;
-           }
-       }
+        $continue = $high - 1;
+        for ($left = $low; $left <= $high; $left++) {
+            if ($this->randomArray[$left] > $this->randomArray[$high]) {
+                for ($right = $continue; $right >= $left; $right--) {
+                    if ($left == $right) {
+                        $tmp = $this->randomArray[$right];
+                        $this->randomArray[$right] = $this->randomArray[$high];
+                        $this->randomArray[$high] = $tmp;
+                        debugPrintln("Array: " . implode(" ", $this->randomArray));
+                        if (0 < $right) {
+                            $this->_quickSort($low, $right - 1);
+                        }
+                        if ($right < $high) {
+                            $this->_quickSort($right + 1, $high);
+                        }
+                        return;
+                    }
+                    if ($this->randomArray[$right] < $this->randomArray[$high]) {
+                        $tmp = $this->randomArray[$left];
+                        $this->randomArray[$left] = $this->randomArray[$right];
+                        $this->randomArray[$right] = $tmp;
+                        $continue = $right;
+                        debugPrintln("Array: " . implode(" ", $this->randomArray));
+                        break;
+                    }
+                }
+            }
+            if ($left == $high) {
+                $this->_quickSort($low, $high - 1);
+                return;
+            }
+        }
+    }
+}
 
+function test()
+{
+    for ($i = 0; $i < 10; $i++) {
+        echo "abcd";
     }
 }

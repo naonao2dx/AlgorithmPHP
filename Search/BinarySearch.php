@@ -9,7 +9,7 @@ include_once dirname(__FILE__) . "/../Base.php";
 
 class BinarySearch extends Base
 {
-    function exec()
+    public function exec()
     {
         println("Search target: {$this->searchTarget}");
 
@@ -32,12 +32,10 @@ class BinarySearch extends Base
 
         if ($this->searchTarget != $this->orderedArray[$middle]) {
             println("Target is not found.");
-            return;
+            return null;
         }
 
         println("Target index is " . $middle);
         return $middle;
     }
-
 }
-

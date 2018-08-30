@@ -9,7 +9,7 @@ include_once dirname(__FILE__) . "/../Base.php";
 
 class BubbleSort extends Base
 {
-    function exec()
+    public function exec()
     {
         $arrangedArray = $this->randomArray;
 
@@ -25,6 +25,4 @@ class BubbleSort extends Base
         }
         println("Arranged array: " . implode(" ", $arrangedArray));
     }
-
 }
-

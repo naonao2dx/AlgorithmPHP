@@ -9,7 +9,7 @@ include_once dirname(__FILE__) . "/../Base.php";
 
 class LineSegmentSearch extends Base
 {
-    function exec()
+    public function exec()
     {
         println("Search target: {$this->searchTarget}");
 
@@ -21,5 +21,4 @@ class LineSegmentSearch extends Base
         }
         println("Target is not found.");
     }
-
 }
